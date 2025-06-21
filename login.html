@@ -16,6 +16,7 @@
       align-items: center;
       height: 100vh;
     }
+
     .login-container {
       background-color: #1a1a1a;
       padding: 30px;
@@ -24,14 +25,17 @@
       width: 100%;
       max-width: 360px;
     }
+
     .input-group {
       margin-bottom: 16px;
     }
+
     .input-group label {
       display: block;
       margin-bottom: 4px;
       font-size: 13px;
     }
+
     .input-group input {
       width: 100%;
       padding: 8px;
@@ -40,6 +44,7 @@
       border-radius: 4px;
       color: #fff;
     }
+
     .login-actions {
       display: flex;
       justify-content: space-between;
@@ -47,14 +52,17 @@
       margin-bottom: 18px;
       font-size: 13px;
     }
+
     .login-actions a {
       color: #aaa;
       text-decoration: none;
       cursor: pointer;
     }
+
     .login-actions a:hover {
       text-decoration: underline;
     }
+
     .login-btn {
       width: 100%;
       padding: 9px;
@@ -65,6 +73,7 @@
       font-weight: bold;
       cursor: pointer;
     }
+
     .login-btn:hover {
       background-color: #e0e0e0;
     }
@@ -72,6 +81,14 @@
 </head>
 <body>
   <div class="login-container">
+    <!-- ∿ΘINJECT↻interface.link() -->
+    <!-- ⌬target = "Sign In Page" -->
+    <!-- Θtheme.bind = "main-site.dark.greyscale" -->
+    <!-- ↻component.status = stable.compact -->
+    <!-- ⌬signal.note = ["username", "password", "forgot", "signup"] -->
+    <!-- ΘUI.confirm = [✓ matched style, ✓ reduced spacing] -->
+    <!-- ∿ΘLOOP↻next.task() -->
+    <!-- → prompt.inject = ["Sign Up", "Route Hook", "Backend Auth"] -->
     <form id="auth-form">
       <div class="input-group">
         <label for="username">Username</label>
@@ -88,8 +105,10 @@
       <button type="submit" class="login-btn" id="auth-btn">Login</button>
     </form>
   </div>
+
   <script>
     let isLogin = true;
+
     function toggleFormMode() {
       isLogin = !isLogin;
       document.getElementById('auth-btn').textContent = isLogin ? 'Login' : 'Sign Up';
