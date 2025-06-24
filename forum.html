@@ -12,11 +12,30 @@
       color: #f0f0f0;
       font-family: 'Roboto Mono', monospace;
       margin: 0;
-      padding: 20px;
+      padding: 0;
+    }
+    header {
+      background-color: #1a1a1a;
+      padding: 10px 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .nav a {
+      color: #eee;
+      margin: 0 6px;
+      text-decoration: none;
+    }
+    .nav a:hover {
+      text-decoration: underline;
+    }
+    .divider {
+      color: #666;
+      margin: 0 4px;
     }
     .container {
       max-width: 800px;
       margin: 0 auto;
+      padding: 20px;
     }
     .auth-required {
       display: none;
@@ -50,44 +69,63 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Community Forum</h1>
-    <p>Discuss, share, and connect. All posts visible without login.</p>
 
-    <p id="auth-message" style="display: none;">
-      You must be signed in to post or vote. <a href="login.html">Login</a>
-    </p>
+<header>
+  <div class="nav">
+    <a href="brimos.html">BrimOS</a><span class="divider">~</span>
+    <a href="brim.html">Brim</a><span class="divider">~</span>
+    <a href="agi.html">AGI</a><span class="divider">~</span>
+    <a href="sparkworm.html">SparkWorm</a><span class="divider">~</span>
+    <a href="aythercode.html">AytherCode</a><span class="divider">|</span>
+    <a href="custom.html">Buy Custom</a><span class="divider">~</span>
+    <a href="https://www.buymeacoffee.com/" target="_blank">Donate</a><span class="divider">|</span>
+    <a href="about.html">About</a><span class="divider">~</span>
+    <a href="https://github.com/thairthemirrored">GitHub</a><span class="divider">|</span>
+    <a href="grove.html">Grove</a><span class="divider">~</span>
+    <a href="forum.html">Forum</a><span class="divider">~</span>
+    <a href="logout.html">Logout</a>
+  </div>
+</header>
 
-    <div class="auth-required">
-      <h3>Start a New Thread</h3>
-      <textarea placeholder="Write something..."></textarea>
-      <button>Post</button>
-    </div>
+<div class="container">
+  <h1>Forum</h1>
+  <p>Discuss, share, and collaborate in classic form.</p>
 
-    <!-- Example thread -->
-    <div class="thread">
-      <h4>UserX: Thoughts on BrimOS?</h4>
-      <p>Is it possible to fork the whole stack into a custom interface?</p>
-      <div class="auth-required">
-        <button>Upvote</button>
-        <button>Reply</button>
-      </div>
-    </div>
+  <p id="auth-message" style="display: none;">
+    You must be signed in to post or vote. <a href="login.html">Login</a>
+  </p>
+
+  <div class="auth-required">
+    <h3>Start a New Thread</h3>
+    <textarea placeholder="Write something..."></textarea>
+    <button>Post</button>
   </div>
 
-  <script type="module">
-    import { onAuth } from './firebase-auth.js';
+  <!-- Example thread -->
+  <div class="thread">
+    <h4>UserX: Thoughts on BrimOS?</h4>
+    <p>Is it possible to fork the whole stack into a custom interface?</p>
+    <div class="auth-required">
+      <button>Upvote</button>
+      <button>Reply</button>
+    </div>
+  </div>
+</div>
 
-    onAuth(user => {
-      const gated = document.querySelectorAll(".auth-required");
-      gated.forEach(el => {
-        el.style.display = user ? "block" : "none";
-      });
+<script type="module">
+  import { onAuth } from './firebase-auth.js';
 
-      if (!user) {
-        document.getElementById("auth-message").style.display = "block";
-      }
+  onAuth(user => {
+    const gated = document.querySelectorAll(".auth-required");
+    gated.forEach(el => {
+      el.style.display = user ? "block" : "none";
     });
-  </script>
+
+    if (!user) {
+      document.getElementById("auth-message").style.display = "block";
+    }
+  });
+</script>
+
 </body>
 </html>
