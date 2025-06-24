@@ -114,7 +114,7 @@
 
 <script type="module">
   import { onAuth } from './firebase-auth.js';
-
+  import './forum-thread.js';
   onAuth(user => {
     const gated = document.querySelectorAll(".auth-required");
     gated.forEach(el => {
