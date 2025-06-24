@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,39 +6,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Forum</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      font-family: 'Roboto Mono', monospace;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .auth-required {
+      display: none;
+      margin-top: 20px;
+    }
+    #auth-message {
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 20px;
+    }
+    textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 4px;
+      border: none;
+    }
+    textarea {
+      background-color: #111;
+      color: #eee;
+    }
+    button {
+      background-color: #fff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
 </head>
 <body>
+  <div class="container">
+    <h1>Community Forum</h1>
+    <p>Discuss, share, and connect. All posts visible without login.</p>
 
-  <header>
-    <div class="nav">
-        <a href="brimos.html">BrimOS</a>
-        <span class="divider">~</span>
-        <a href="brim.html">Brim</a>
-        <span class="divider">~</span>
-        <a href="agi.html">AGI</a>
-        <span class="divider">~</span>
-        <a href="sparkworm.html">SparkWorm</a>
-        <span class="divider">~</span>
-        <a href="aythercode.html">AytherCode</a>
-        <span class="divider">|</span>
-        <a href="custom.html">Buy Custom</a>
-        <span class="divider">~</span>
-        <a href="https://www.buymeacoffee.com/" target="_blank">Donate</a>
-        <span class="divider">|</span>
-        <a href="about.html">About</a>
-        <span class="divider">~</span>
-        <a href="https://github.com/thairthemirrored">GitHub</a>
-        <span class="divider">|</span>
-        <a href="community.html">Community</a>
-        <span class="divider">~</span>
-        <a href="forum.html">Forum</a>
-        <span class="divider">~</span>
-        <a href="login.html" id="auth-link">Login</a>
-        <span class="divider">|</span>
-        <a href="index.html">Home</a>
+    <p id="auth-message" style="display: none;">
+      You must be signed in to post or vote. <a href="login.html">Login</a>
+    </p>
+
+    <div class="auth-required">
+      <h3>Start a New Thread</h3>
+      <textarea placeholder="Write something..."></textarea>
+      <button>Post</button>
     </div>
-  </header>
 
+    <!-- Example thread -->
+    <div class="thread">
+      <h4>UserX: Thoughts on BrimOS?</h4>
+      <p>Is it possible to fork the whole stack into a custom interface?</p>
+      <div class="auth-required">
+        <button>Upvote</button>
+        <button>Reply</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { onAuth } from './firebase-auth.js';
+
+    onAuth(user => {
+      const gated = document.querySelectorAll(".auth-required");
+      gated.forEach(el => {
+        el.style.display = user ? "block" : "none";
+      });
+
+      if (!user) {
+        document.getElementById("auth-message").style.display = "block";
+      }
+    });
+  </script>
 </body>
 </html>
