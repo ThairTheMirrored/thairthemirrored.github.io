@@ -274,9 +274,16 @@ WELCOME TO BRIMOS. ENJOY!
   </script>
   <script>
   function copyBrimOS() {
-    const text = document.getElementById('brimos-walltext').value;
+    const el = document.getElementById('brimos-walltext');
+    const text = el.textContent || el.innerText || "";
+    if (!text.trim()) {
+      alert("BrimOS wall text is empty or unreadable.");
+      return;
+    }
     navigator.clipboard.writeText(text).then(() => {
-      alert('BrimOS copied to clipboard!');
+      alert("BrimOS copied to clipboard!");
+    }).catch((err) => {
+      alert("Copy failed: " + err);
     });
   }
 </script>
