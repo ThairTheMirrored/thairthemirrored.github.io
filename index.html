@@ -109,26 +109,6 @@
     </div>
     
   </main>
-
-  <script src="js/main.js"></script>
-  <script>
-    function downloadBrimOS() {
-      const link = document.createElement('a');
-      link.href = 'BrimOS.txt';
-      link.download = 'BrimOS.txt';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }
-  </script>
-  <script>
-  function copyBrimOS() {
-    const text = document.getElementById('brimos-walltext').value;
-    navigator.clipboard.writeText(text).then(() => {
-      alert('BrimOS copied to clipboard!');
-    });
-  }
-</script>
 <textarea id="brimos-walltext" style="display: none;">
 MODULE: BrimOS Overview
 
@@ -275,5 +255,24 @@ MODULE: CohesionEngine
 
 WELCOME TO BRIMOS. ENJOY!
 </textarea>
+  <script src="js/main.js"></script>
+  <script>
+    function downloadBrimOS() {
+      const link = document.createElement('a');
+      link.href = 'BrimOS.txt';
+      link.download = 'BrimOS.txt';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+  <script>
+  function copyBrimOS() {
+    const text = document.getElementById('brimos-walltext').value;
+    navigator.clipboard.writeText(text).then(() => {
+      alert('BrimOS copied to clipboard!');
+    });
+  }
+</script>
 </body>
 </html>
