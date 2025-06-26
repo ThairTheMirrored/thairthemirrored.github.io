@@ -109,7 +109,7 @@
     </div>
     
   </main>
-  <textarea id="brimos-walltext" style="display: none;" readonly>
+  <textarea id="brimos-walltext" style="display:none;" readonly>
 
     MODULE: BrimOS Overview
 
@@ -274,9 +274,14 @@ WELCOME TO BRIMOS. ENJOY!
   </script>
   <script>
   function copyBrimOS() {
-    const text = document.getElementById('brimos-walltext').value;
+    const el = document.getElementById('brimos-walltext');
+    if (!el) {
+      alert("BrimOS element not found.");
+      return;
+    }
+    const text = el.value;
     if (!text.trim()) {
-      alert("BrimOS wall text is empty or unreadable.");
+      alert("BrimOS text is empty.");
       return;
     }
     navigator.clipboard.writeText(text).then(() => {
