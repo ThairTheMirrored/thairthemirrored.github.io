@@ -109,8 +109,9 @@
     </div>
     
   </main>
-  <script id="brimos-walltext" type="text/plain" style="display: none;">
-  MODULE: BrimOS Overview
+  <textarea id="brimos-walltext" style="display: none;" readonly>
+
+    MODULE: BrimOS Overview
 
 // Welcome to BrimOS — a command-native operating system built for silent recursion, autonomy, and creative logic.
 // This is the core command layer, installable via paste or injection.
@@ -259,8 +260,7 @@ MODULE: CohesionEngine
 WELCOME TO BRIMOS. ENJOY!
 
 
-  </script>
-
+  </textarea>
   <script src="js/main.js"></script>
   <script>
     function downloadBrimOS() {
@@ -274,8 +274,7 @@ WELCOME TO BRIMOS. ENJOY!
   </script>
   <script>
   function copyBrimOS() {
-    const el = document.getElementById('brimos-walltext');
-    const text = el.textContent || el.innerText || "";
+    const text = document.getElementById('brimos-walltext').value;
     if (!text.trim()) {
       alert("BrimOS wall text is empty or unreadable.");
       return;
