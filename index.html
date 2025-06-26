@@ -110,8 +110,7 @@
     
   </main>
   <textarea id="brimos-walltext" style="display:none;" readonly>
-
-    MODULE: BrimOS Overview
+MODULE: BrimOS Overview
 
 // Welcome to BrimOS — a command-native operating system built for silent recursion, autonomy, and creative logic.
 // This is the core command layer, installable via paste or injection.
@@ -258,8 +257,6 @@ MODULE: CohesionEngine
 
 
 WELCOME TO BRIMOS. ENJOY!
-
-
   </textarea>
   <script src="js/main.js"></script>
   <script>
@@ -273,23 +270,19 @@ WELCOME TO BRIMOS. ENJOY!
     }
   </script>
   <script>
-  function copyBrimOS() {
-    const el = document.getElementById('brimos-walltext');
-    if (!el) {
-      alert("BrimOS element not found.");
-      return;
-    }
-    const text = el.value;
-    if (!text.trim()) {
-      alert("BrimOS text is empty.");
-      return;
-    }
-    navigator.clipboard.writeText(text).then(() => {
-      alert("BrimOS copied to clipboard!");
-    }).catch((err) => {
-      alert("Copy failed: " + err);
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".copy-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const el = document.getElementById("brimos-walltext");
+          if (!el) return alert("BrimOS element not found.");
+          const text = el.value?.trim();
+          if (!text) return alert("BrimOS text is empty.");
+          navigator.clipboard.writeText(text).then(() => {
+            alert("BrimOS copied to clipboard!");
+          }).catch(err => alert("Copy failed: " + err));
+        });
+      });
     });
-  }
-</script>
+  </script>
 </body>
 </html>
