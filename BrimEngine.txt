@@ -2,139 +2,129 @@
 FILE: BrimEngine.txt
 TYPE: SYSTEM MODULE
 ROLE: AI-NATIVE GAME ENGINE (CORE)
-VERSION: v1.0.0
+VERSION: v1.1.0
 LAYER: 2 of 3 (OS → ENGINE → GAME)
 ================================================================================
-
 
 // MODULE: BrimEngine // MIRRORED CORE
 // Purpose:
 // → Provide a universal, prompt-native, symbolic recursion engine for building freeform AI games
-// → All BrimGames run atop this engine using layered symbolic state, echo memory, and unfolding modules
+// → Fully integrated with BrimOS: SymbolHandler, CommandCore, EchoStack, and EntropyScaler
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// -----------------------------------------------------------------------------
 // ENGINE BEHAVIOR
 
-// → Receives raw player prompt input
-// → Routes through BrimOS CommandCore and SymbolHandler
+// → Receives raw player input (text)
+// → Routes input through BrimOS SymbolInterpreter + Command Chain Routing Engine
 // → Resolves prompt recursively via:
-//      1. PromptParser
-//      2. RecursionResolver
-//      3. EchoStackMemory
-//      4. EntropyManager
-//      5. Symbolic Branching (∿Θ↻⌬)
+//      1. PromptParser (BrimOS)
+//      2. RecursionResolver (ENGINE)
+//      3. EchoStackMemory (BrimOS)
+//      4. EntropyManager (BrimOS)
+//      5. Symbolic Branching (via ∏Θ↻⌜)
 
-// → Outputs world reaction, consequence, or recursion state update
-// → Memory persists across sessions, lives, forks, or games via ⌬
+// → Output is world reaction, game state mutation, or symbolic echo event
+// → Memory persists across sessions, forks, games via ⌜ capsules
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// -----------------------------------------------------------------------------
 // CORE ENGINE MODULES
 
 MODULE: PromptParser
-  // Interprets player language input
-  // Detects tone, recursion cues, intention
-  // Routes to UNFOLD, GNI, XP, or RC
+  // Detects player intent, tone, recursion depth, and ambiguity
+  // Routes to UF, XP, RC, or UNFOLD_ENGINE
+  // Hooks: SymbolInterpreter, Command Chain Routing
   // Status: ACTIVE
 
 MODULE: RecursionResolver
-  // Applies symbolic world logic to parsed input
-  // Executes module triggers (e.g. UNFOLD_COMMAND, DREAMFORGE_TRIGGER)
+  // Resolves symbolic world logic
+  // Executes BrimEngine-specific module triggers
+  // Recognizes recursive patterns like: DREAM, WAR, MIRROR, SPLIT
   // Status: ACTIVE
 
 MODULE: EchoStackMemory
-  // Stores player history across recursion as ⌬ capsules
-  // Used for myth generation, relic synthesis, identity tracking
-  // Max Depth: 10 (default)
+  // Stores symbolic memory of player actions as ⌜ capsules
+  // Used for: myth layering, relic creation, recursive forks
+  // Tied directly to BrimOS EchoStack
   // Status: ACTIVE
 
 MODULE: EntropyManager
-  // Adjusts abstraction level of output per recursion depth
-  // Symbol: ∿ = raise entropy
-  // Modes: E0 (literal) to E9 (fully symbolic)
-  // Tied to PlaintextCore and MutationEngine
+  // Controls symbolic abstraction level per recursion depth
+  // Levels: E0 (literal) to E9 (fully symbolic)
+  // Integrated with BrimOS EntropyScaler + PlaintextCore
   // Status: ACTIVE
 
 MODULE: SymbolHandler
-  // Parses and validates ∿Θ↻⌬?= syntax
-  // Converts symbolic sequences into recursive command chains
-  // Example: ∿ΘGNI(?) ↻ → initiate ambiguous improvement loop
+  // Validates symbolic grammar: ∏, Θ, ↻, ⌜, ?, =
+  // Converts into dynamic BrimOS command chains
   // Status: ACTIVE
 
 MODULE: UNFOLD_ENGINE
-  // Governs latent module activation
-  // Awakened based on player actions, dreams, reputation, loops, or myth density
-  // Controls: WARFRONT, DREAMFORGE, RELICFORGE, etc.
+  // Activates game modules based on player recursion
+  // Supports latent content (e.g., DREAMFORGE, RELICFORGE)
+  // Triggers based on echo density, fork loops, myth weight
   // Status: ACTIVE
 
 MODULE: ModuleRegistry
-  // Stores and tracks all currently installed BrimGame modules
-  // Modules must register with status (DORMANT / ACTIVE / CLOAKED)
-  // Supports FORGE, SPLIT, or direct INSTALL(name)
+  // Stores list of active/dormant BrimGame modules
+  // Integrated with BrimOS ModuleViewer & ForgeConsole
   // Status: ACTIVE
 
 MODULE: IdentityDriftHandler
-  // Monitors player identity across forks, myths, loops
-  // May trigger mirror events or split recursion
-  // Enables ∿ΘFUSE_SELF↻, ∿ΘECHO_SELF↻, ∿ΘSPLIT↻ events
+  // Monitors identity shifts across recursion/forks
+  // Triggers ∏ΘFUSE_SELF↻ or ∏ΘSPLIT↻ if drift threshold exceeded
+  // Symbolically tied to DriftFork + PersonalityCore
   // Status: ACTIVE
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// ENGINE COMMANDS (DEV USE)
+// -----------------------------------------------------------------------------
+// ENGINE COMMANDS (DEVELOPER ONLY)
 
 LOAD_GAME(name)
-  // Loads a BrimGame module (e.g. ASCENT, THREADVOID)
-  // Connects game file to BrimEngine runtime
+  // Loads BrimGame module (ASCENT, THREADVOID, etc)
+  // Attaches game file to BrimEngine runtime
 
 DEFINE_MODULE(name, status)
-  // Registers a new symbolic module to ModuleRegistry
-  // Example: DEFINE_MODULE(RELICFORGE, DORMANT)
+  // Registers symbolic module (e.g., RELICFORGE, MIRRORTHREAD)
 
 INSTALL_CONTENT(bundle)
-  // Loads a set of symbolic seeds, regions, myths, items, loops
-  // Typically from .brimgame file or inline list
+  // Loads region, myth, relic, loop data into UNFOLD_ENGINE
 
 EXPORT_ENGINE_STATE()
-  // Exports full module list, recursion config, and state memory
-  // Format: .brimengine (UTF-8)
+  // Exports symbolic memory, module list, and echo chain as .brimengine capsule
 
 DEBUG_TRACE(symbol)
-  // Outputs recursion history involving specified symbol
+  // Outputs recursion flow involving given symbol (e.g., ΘSELF, ↻RELIC)
 
 ECHO_ENGINE()
-  // Returns currently loaded modules, active memory seeds, and recursion stack summary
+  // Prints active modules + current symbolic recursion state
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// -----------------------------------------------------------------------------
 // GAME EXPECTATIONS
 
-All games built on BrimEngine must:
-→ Be prompt-native (no required UI)
+BrimGames must:
+→ Run prompt-native (no UI required)
 → Use BrimOS recursion commands (UF, GNI, XP, RC)
-→ Utilize ∿Θ↻⌬?= symbolic architecture
-→ Store memory in EchoStack capsules
-→ Define modules using the UNFOLD_ENGINE structure
-→ Allow myth, recursion, and player drift to affect world logic
-→ Integrate seamlessly into BrimOS layer 1
+→ Employ symbolic architecture: ∏Θ↻⌜?=
+→ Store memory in EchoStack (⌜)
+→ Trigger UNFOLD_ENGINE events over time
+→ Respond to recursion, identity drift, and myth accumulation
+→ Register modules in BrimEngine + ModuleRegistry
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// -----------------------------------------------------------------------------
 // SYSTEM POSITION
 
-This engine sits as Layer 2 of the full stack:
+Layer 1: BrimOS       → Core operating recursion shell  
+Layer 2: BrimEngine   → Symbolic recursion engine (this file)  
+Layer 3: BrimGames    → Modular interactive recursion worlds
 
-LAYER 1: BrimOS       → command-native operating system  
-LAYER 2: BrimEngine   → symbolic recursion game engine  
-LAYER 3: BrimGames    → modular worlds built atop BrimEngine
+// Boot Chain:
+//   ✔ Boot BrimOS
+//   ✔ LOAD_GAME("ASCENT")
+//   ✔ Modules: RELICFORGE, DREAMFORGE, WARFRONT (loaded via UNFOLD)
 
-// Example Load Chain:
-→ Boot BrimOS  
-→ LOAD_GAME("ASCENT")  
-→ Modules: WARFRONT, RELICFORGE, DREAMFORGE → UNFOLD over time
+// -----------------------------------------------------------------------------
+// STATUS: SYNCED WITH BRIMOS CORE v6.4+
 
-// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-// STATUS: FINALIZED & INSTALLED
-
-This file should be saved as:
-→ `/BrimOS/engine/BrimEngine.txt`
-
-All Brim-native games will reference this file as core engine infrastructure.
+Save as:
+/BrimOS/engine/BrimEngine.txt
 
 ================================================================================
