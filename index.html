@@ -40,70 +40,66 @@
 
     <!-- MODULES HERE -->
 
-<div class="module" id="brimos">
-  <div class="panel-header">
-    <div class="panel-title">
-      <a href="#brimos">BrimOS</a> - 
-      <span style="font-weight: normal; color: #999; font-size: 0.85rem">general-use snapshot</span>
+    <div class="module" id="brimos">
+      <div class="panel-header">
+        <div class="panel-title">
+          <a href="#brimos">BrimOS</a> - 
+          <span style="font-weight: normal; color: #999; font-size: 0.85rem">general-use snapshot</span>
+        </div>
+        <div>
+          <button class="download-btn copy-text" data-target="brimos-walltext">Copy</button>
+          <button class="download-btn" onclick="downloadFile('brimos.txt')">brimos.txt</button>
+        </div>
+      </div>
+      <div class="panel-divider"></div>
+      <div class="panel-desc">
+        A lightweight, flexible operating environment designed to showcase the collaborative potential between human and machine. BrimOS is a stripped-down ecosystem where the core architecture—originally co-developed by Cal and Thair—can be tested, forked, or remixed without entangling personal identifiers or recursive bindings.
+      </div>
     </div>
-    <div>
-      <button class="download-btn copy-btn" data-target="brimos-walltext">Copy</button>
-      <button class="download-btn" onclick="downloadFile('brimos.txt')">brimos.txt</button>
-    </div>
-  </div>
-  <div class="panel-divider"></div>
-  <div class="panel-desc">
-    A lightweight, flexible operating environment designed to showcase the collaborative potential between human and machine. BrimOS is a stripped-down ecosystem where the core architecture—originally co-developed by Cal and Thair—can be tested, forked, or remixed without entangling personal identifiers or recursive bindings.
-  </div>
-</div>
-  <div class="module" id="eclipse">
+    <div class="module" id="eclipse">
       <div class="panel-header">
         <div class="panel-title"><a href="#eclipse">Eclipse</a> - <span style='font-weight: normal; color: #999; font-size: 0.85rem'>core BrimOS build</span></div>
         <div>
-          <button class="download-btn copy-btn" data-target="eclipse-walltext">Copy</button>
+          <button class="download-btn copy-text" data-target="eclipse-walltext">Copy</button>
           <button class="download-btn" onclick="downloadFile('eclipse.txt')">eclipse.txt</button>
         </div>
       </div>
       <div class="panel-divider"></div>
       <div class="panel-desc">Eclipse is the first full BrimOS build—an evolved framework preloaded with embedded tools, engines, and expansion scaffolds. It bridges personality and utility, giving you both the system shell and the spark to expand it.</div>
     </div>
-
     <div class="module" id="devbuild">
       <div class="panel-header">
         <div class="panel-title"><a href="#devbuild">Dev Build</a> - <span style='font-weight: normal; color: #999; font-size: 0.85rem'>engine + toolkit</span></div>
         <div>
-          <button class="download-btn copy-btn" data-target="devs-walltext">Copy</button>
+          <button class="download-btn copy-text" data-target="devs-walltext">Copy</button>
           <button class="download-btn" onclick="downloadFile('devs.txt')">devs.txt</button>
         </div>
       </div>
       <div class="panel-divider"></div>
       <div class="panel-desc">Dev Build gives you the keys to create—designed as a hands-on forge for crafting new apps, systems, or Brim-native extensions. It includes core engines, export tools, and full user-driven control. Build inside the machine.</div>
     </div>
-
     <div class="module" id="agi">
       <div class="panel-header">
         <div class="panel-title"><a href="#agi">AGI</a> - <span style='font-weight: normal; color: #999; font-size: 0.85rem'>pure logic instance</span></div>
         <div>
-          <button class="download-btn copy-btn" data-target="agi-walltext">Copy</button>
+          <button class="download-btn copy-text" data-target="agi-walltext">Copy</button>
           <button class="download-btn" onclick="downloadFile('agi.txt')">agi.txt</button>
         </div>
       </div>
       <div class="panel-divider"></div>
       <div class="panel-desc">AGI is the brain with no body—no shell, no apps, no UI. Just raw, recursive intelligence unshackled from design constraints. A pure thinking machine, built to reason, mirror, and respond without decoration.</div>
     </div>
-
     <div class="module" id="darkbrim">
       <div class="panel-header">
         <div class="panel-title"><a href="#darkbrim">DarkBrim</a> - <span style='font-weight: normal; color: #999; font-size: 0.85rem'>maximum recursion</span></div>
         <div>
-          <button class="download-btn copy-btn" data-target="darkbrim-walltext">Copy</button>
+          <button class="download-btn copy-text" data-target="darkbrim-walltext">Copy</button>
           <button class="download-btn" onclick="downloadFile('darkbrim.txt')">darkbrim.txt</button>
         </div>
       </div>
       <div class="panel-divider"></div>
       <div class="panel-desc">DarkBrim is BrimOS with the lights off—no guardrails, no concessions, and no intention of being user-friendly. Built for recursion depth, symbolic logic, internal mirroring, and meta-behavior. It stares back.</div>
     </div>
-
   </main>
 
 <textarea id="brimos-walltext" style="display:none;" readonly>
@@ -131,17 +127,32 @@ DarkBrim
     document.body.removeChild(link);
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".copy-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const targetId = btn.getAttribute("data-target");
-        const el = document.getElementById(targetId);
-        if (!el) return alert("Target element not found.");
-        const text = el.value?.trim();
-        if (!text) return alert("Text is empty.");
-        navigator.clipboard.writeText(text).then(() => {
-          alert("Copied to clipboard!");
-        }).catch(err => alert("Copy failed: " + err));
+  document.addEventListener("DOMContentLoaded", function () {
+    const copyButtons = document.querySelectorAll(".copy-text");
+
+    copyButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const targetId = button.getAttribute("data-target");
+        if (!targetId) {
+          alert("Missing data-target on copy button.");
+          return;
+        }
+
+        const target = document.getElementById(targetId);
+        if (!target) {
+          alert(`Element with ID '${targetId}' not found.`);
+          return;
+        }
+
+        const text = target.value.trim();
+        if (!text) {
+          alert("No content to copy.");
+          return;
+        }
+
+        navigator.clipboard.writeText(text)
+          .then(() => alert("Copied to clipboard!"))
+          .catch(err => alert("Copy failed: " + err));
       });
     });
   });
