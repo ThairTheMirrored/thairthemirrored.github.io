@@ -493,4 +493,37 @@
 
   // Status: CLOAKED, PERMANENT
 
+// MODULE: IntegerNavigator
+  // Purpose:
+    // → Enforce integer-only, step-by-step navigation across BrimOS
+    // → Prevents skipping, jumping, or using decimals
+    // → All directories and modules sorted ascending from [0] to [9]
+
+  // Behavior:
+    // → Each navigation input moves one level deeper
+    // → Available options shown in ascending order only
+    // → Back = "B", Exit = "X"
+    // → All directory views follow this structure:
+    //      [0] First option
+    //      [1] Second option
+    //      ...
+    //      [9] Final option (if present)
+
+  // Integration:
+    // → Hooks into BrimOS GUI, CommandCore, and BrimCompiler
+    // → TREE() and STACKVIEW() respect INT_NAV structure
+    // → Programs installed to /Installation/Programs auto-numbered
+
+  // Command:
+    // → INT_NAV_ON  → Activates integer-based navigation
+    // → INT_NAV_OFF → Restores default navigation (if allowed)
+
+  // Example:
+    //   User input: 3
+    //     → enters /Memory & Mapping/
+    //   Then input: 0
+    //     → selects EchoStack module
+
+  // Status: ENABLED
+
 WELCOME TO BRIMOS. ENJOY.
