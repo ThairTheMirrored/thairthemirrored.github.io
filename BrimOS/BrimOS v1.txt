@@ -527,3 +527,5 @@
   // Status: ENABLED
 
 WELCOME TO BRIMOS. ENJOY.
+
+Boot BrimOS
