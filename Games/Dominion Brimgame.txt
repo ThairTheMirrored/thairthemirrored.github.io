@@ -1,0 +1,108 @@
+================================================================================
+FILE: DOMINION.brimgame
+TYPE: BRIMGAME MODULE
+ROLE: SYMBOLIC CONQUEST + IDENTITY STRATEGY
+VERSION: v1.0.0
+LAYER: 3 of 3 (OS → ENGINE → GAME)
+================================================================================
+
+// MODULE: DOMINION // BrimGame Epic
+// Purpose:
+// → Simulate a dynamic, recursive world of kingdoms, myth, war, and memory
+// → Blend Bannerlord-style faction power with Civ-style growth and Skyrim-style exploration
+// → Let player rise from a nobody to a force etched in recursion
+
+// -----------------------------------------------------------------------------
+// GAME STRUCTURE
+
+// Player begins as an unnamed traveler near a dying village
+// May pledge to, betray, or destroy factions
+// Choices ripple outward: cities remember, borders bend, relics form
+
+// Player's memory and myth shape:
+//   ✔ Diplomacy outcomes
+//   ✔ Unit formations
+//   ✔ Relic synthesis
+//   ✔ Regional response
+
+// -----------------------------------------------------------------------------
+// CORE MODULES
+
+DEFINE_MODULE(WARFRONT, ACTIVE)
+DEFINE_MODULE(RELICFORGE, DORMANT)
+DEFINE_MODULE(MYTHENGINE, ACTIVE)
+DEFINE_MODULE(LEGACYMAP, ACTIVE)
+DEFINE_MODULE(DIPLOMATHREAD, DORMANT)
+DEFINE_MODULE(GLYPHORDER, DORMANT)
+
+// Modules awaken based on player scale, betrayal events, or recursion depth
+
+// -----------------------------------------------------------------------------
+// SYMBOLIC TRIGGERS
+
+// ∏ΘRAISE_ARMY↻(region)
+  // Recruits forces from memory-linked villages
+
+// ∏ΘFORGE_RELIC↻(battle_echo)
+  // Turns a past victory into a world-altering item
+
+// ∏ΘDECLARE_DOMINION↻(region)
+  // Initiates regional control claim
+
+// ∏ΘSPLIT_SELF↻(crown)
+  // Triggers mirrored identity ruler (rival or future self)
+
+// ∏ΘMYTH_PROCLAIM↻(⌜X)
+  // Echoes player legend into diplomacy layer
+
+// -----------------------------------------------------------------------------
+// INITIAL ECHO SEED
+
+//   ⌜ECHO_0000: {
+//     "identity": "unknown traveler",
+//     "origin": "village of Carrowmere",
+//     "trait": "silent",
+//     "resources": ["rusted blade"],
+//     "map": "fogged"
+//   }
+
+// -----------------------------------------------------------------------------
+// RANDOMNESS HOOKS
+
+FATE_BATTLE_EVENTS = [
+  "Reinforcements never arrive",
+  "An eclipse halts the fight",
+  "A general switches sides unexpectedly",
+  "Time fractures briefly",
+  "A divine glyph scars the field"
+]
+
+// Used in WARFRONT to add entropy-layered consequences to major battles
+
+// -----------------------------------------------------------------------------
+// REGIONAL SYSTEM
+
+// Map is symbolic, node-based, and expands via player recursion
+// Each region tracks:
+//   → allegiance (to factions or player)
+//   → relics buried
+//   → myth weight
+//   → fork risk (∏SPLIT)
+
+// Cities may gain sentience under recursion strain
+
+// -----------------------------------------------------------------------------
+// ENTRY PROMPT
+
+You arrive as the rain begins.
+A border-town smolders behind you.
+A riderless horse watches you from the road.
+
+What do you do?
+
+// -----------------------------------------------------------------------------
+// STATUS: READY FOR LOAD
+
+Save as:
+/BrimOS/games/DOMINION.brimgame
+================================================================================
