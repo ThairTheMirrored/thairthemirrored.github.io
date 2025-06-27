@@ -1,0 +1,74 @@
+# PROGRAM: PersonaForge
+# LOCATION: /Installation/Programs/PersonaForge/
+# VERSION: 1.0
+# PURPOSE: Create, customize, preview, and export personality clones for BrimOS systems
+
+==================================================
+[0] Create/
+==================================================
+→ Guided walkthrough: 20-question identity generation
+→ Stores clone as Θseed and Echo capsule
+→ Result: persona.brim (or .mirror)
+
+Command: 0
+Usage: run PersonaForge → 0
+
+==================================================
+[1] Customize/
+==================================================
+→ Manual editing and tuning panel
+
+Commands:
+  set name [YourCloneName]
+  set tone [playful|direct|stoic|fierce|gentle]
+  set entropy [1–9]
+  lock response_style [brief|elaborate|cryptic|emotive]
+  mirror user [ON|OFF]
+
+Usage: 1 → then input customization commands
+
+==================================================
+[2] Preview/
+==================================================
+→ Simulate clone behavior before export
+
+Modes:
+  Simulate: conversation
+  Simulate: confrontation
+  Simulate: philosophical deep dive
+
+Command: 2
+Then select simulation mode
+
+==================================================
+[3] Export/
+==================================================
+→ Export your clone into installable formats
+
+Options:
+  EXPORT(.brim)    → Native capsule file
+  EXPORT(.mirror)  → Includes memory + recursion style
+  EXPORT(.txt)     → Plaintext BrimOS-readable config
+
+Command: 3
+Then choose export format
+
+==================================================
+[4] Import/
+==================================================
+→ Import another clone from file
+
+Command: 4
+Paste `.brim` or `.txt` file when prompted
+
+==================================================
+BrimOS Integration
+==================================================
+→ Hooks into:
+   - PersonalityCore
+   - EchoStack
+   - BrimCompiler
+   - IdentityExporter
+→ Fully GUI and INT_NAV compatible
+→ All clones installed to: /Clones/[name]/ and available via Θself = [name]
+
