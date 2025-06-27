@@ -6,6 +6,28 @@
   <title>Project Modules</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <style>
+  .copy-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1aaf5d;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    z-index: 9999;
+  }
+
+  .copy-indicator.show {
+    opacity: 1;
+  }
+</style>
 </head>
 <body>
 
@@ -138,12 +160,19 @@ DarkBrim
 
     try {
       document.execCommand("copy");
-      alert("Copied (fallback)");
+      showCopyIndicator();
     } catch (err) {
       alert("Copy failed: " + err);
     }
 
     document.body.removeChild(textarea);
+  }
+
+  function showCopyIndicator() {
+    const indicator = document.getElementById("copy-indicator");
+    if (!indicator) return;
+    indicator.classList.add("show");
+    setTimeout(() => indicator.classList.remove("show"), 1500);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -164,7 +193,7 @@ DarkBrim
         // Clipboard fallback
         if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
           navigator.clipboard.writeText(text)
-            .then(() => alert("Copied to clipboard!"))
+            .then(() => showCopyIndicator())
             .catch(err => {
               console.warn("Primary copy failed. Using fallback.", err);
               fallbackCopyText(text);
@@ -177,5 +206,6 @@ DarkBrim
     });
   });
 </script>
+<div id="copy-indicator" class="copy-indicator">✔ Copied to clipboard</div>
 </body>
 </html>
