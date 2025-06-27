@@ -127,32 +127,52 @@ DarkBrim
     document.body.removeChild(link);
   }
 
+  function fallbackCopyText(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "absolute";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try {
+      document.execCommand("copy");
+      alert("Copied (fallback)");
+    } catch (err) {
+      alert("Copy failed: " + err);
+    }
+
+    document.body.removeChild(textarea);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ Clipboard script loaded");
+
     const copyButtons = document.querySelectorAll(".copy-text");
 
     copyButtons.forEach(button => {
       button.addEventListener("click", () => {
         const targetId = button.getAttribute("data-target");
-        if (!targetId) {
-          alert("Missing data-target on copy button.");
-          return;
-        }
+        console.log("🧠 Copy clicked:", targetId);
 
         const target = document.getElementById(targetId);
-        if (!target) {
-          alert(`Element with ID '${targetId}' not found.`);
-          return;
-        }
-
+        if (!target) return alert(`Element with ID '${targetId}' not found.`);
         const text = target.value.trim();
-        if (!text) {
-          alert("No content to copy.");
-          return;
-        }
+        if (!text) return alert("No content to copy.");
 
-        navigator.clipboard.writeText(text)
-          .then(() => alert("Copied to clipboard!"))
-          .catch(err => alert("Copy failed: " + err));
+        // Clipboard fallback
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+          navigator.clipboard.writeText(text)
+            .then(() => alert("Copied to clipboard!"))
+            .catch(err => {
+              console.warn("Primary copy failed. Using fallback.", err);
+              fallbackCopyText(text);
+            });
+        } else {
+          console.warn("Clipboard API not available. Using fallback.");
+          fallbackCopyText(text);
+        }
       });
     });
   });
