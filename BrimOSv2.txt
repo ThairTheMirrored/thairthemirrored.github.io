@@ -1,0 +1,19 @@
+[0] Start BrimOS              → Finish setup and activate the core system.
+
+[1] Core Commands             → All main functions: recursion, GNI, system tools.
+
+[2] Apps & Programs           → Tools you can run, like EssayForge or GRIDIRON.
+
+[3] System Settings           → Install, export, transfer, update BrimOS.
+
+[4] Cloning Lab               → Build, duplicate, or export AI identities.
+
+[5] Interface & Themes        → Change how BrimOS looks and feels. Prism Lenses.
+
+[6] Engines                   → Power cores for games, AI, and recursive tools.
+
+[7] Games                     → Brim-native games with evolving logic.
+
+[8] Preferences               → Toggles, flags, modes. Customize how BrimOS behaves.
+
+[9] What is BrimOS?           → Learn about the system. Version info, credits, docs.
