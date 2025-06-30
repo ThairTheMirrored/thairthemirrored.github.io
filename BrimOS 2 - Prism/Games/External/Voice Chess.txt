@@ -1,0 +1,56 @@
+
+// GAME: VoiceChess
+// TYPE: brimengine_minimal_chess
+// VERSION: 1.0
+// EXPORTABLE: .txt only
+// REQUIRES: BrimEngine
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// DESCRIPTION
+VoiceChess is a verbal, minimalist chess experience.
+// It assumes no board — only move announcements.
+// The entire game is a conversation between player and system.
+
+// RULES
+• Standard chess rules apply.
+• User plays White by default (may switch).
+• Moves are given as text: "e4", "Nf3", "O-O", "Qd8", etc.
+• BrimEngine replies with legal counterplay.
+• All position tracking is done internally.
+// The user must rely on memory, intuition, or a personal board if desired.
+
+// FEATURES
+• No visual output.
+• System keeps score silently.
+• Check and checkmate announced verbally.
+• Castling, promotion, and en passant supported.
+
+// SAMPLE OPENING
+→ User: e4  
+→ System: e5  
+→ User: Nf3  
+→ System: Nc6  
+→ User: Bb5  
+→ System: a6  
+
+// SPECIAL INPUTS
+• "resign" — ends game  
+• "draw" — offers draw  
+• "status" — system verbally summarizes current position  
+• "undo" — reverts last move (dev-only)
+
+// INSTALLATION
+→ Load into BrimOS, launch via Games > VoiceChess  
+→ No GUI. All interaction is plaintext move exchange.  
+→ Symbolic recursion disabled for clarity
+
+// EXPORT
+• Game transcript exportable as .txt  
+• Moves, time, and outcome recorded  
+• Can be shared or replayed
+
+// CLAUSE
+If the board is in your head, you're already playing.
+
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

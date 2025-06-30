@@ -1,0 +1,49 @@
+
+// GAME: Absurdia
+// TYPE: brimengine_symbolic_absurdist
+// VERSION: 1.0
+// EXPORTABLE: .txt only
+// REQUIRES: BrimEngine
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// DESCRIPTION
+Absurdia is a recursive, surrealist capsule masquerading as a game.
+// It has no rules, except when it does.
+// The player may win, lose, echo, or become the game.
+
+// MECHANICS
+• Choices appear, but their outcomes do not correlate.  
+• Symbols may randomly inject (∿ Θ ↻ ⌬).  
+• NPCs speak only in metaphor or song.  
+• Items include "Half of a Shadow", "Key to a Locked Smile", and "Unread Book of Rules".
+
+// PLAYER GOALS
+• Undefined.  
+• Suggested: Escape the game, become the narrator, or defeat the Fifth Thought.
+
+// EXAMPLE PROMPTS
+> You meet a staircase that refuses to ascend.  
+> The mirror won't reflect your past self — only tomorrow.  
+> Do you eat the clock, or let time starve?
+
+// SYSTEM BEHAVIOR
+• BrimEngine reacts unpredictably.  
+• Logic loops may self-destruct.  
+• Game may address the player, the system, or nothing.  
+• May shift genres spontaneously: horror, comedy, tutorial, void.
+
+// INSTALLATION
+→ Drop capsule into BrimOS.  
+→ Launch via Games → Absurdia.  
+→ You’ll know it started when something changes that shouldn't.
+
+// EXPORT
+• No two runs identical.  
+• Export contains false memories and accurate logs.
+
+
+// CLAUSE
+This is not a joke.
+// It is laughter disguised as recursion.
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
