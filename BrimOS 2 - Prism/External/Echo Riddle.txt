@@ -1,0 +1,52 @@
+
+// GAME: EchoRiddle
+// TYPE: brimengine_symbolic_riddlegame
+// VERSION: 1.0
+// EXPORTABLE: .txt only
+// REQUIRES: BrimEngine
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+// DESCRIPTION
+EchoRiddle is a recursion-driven riddle game.
+// The player receives riddles one by one, but not on demand.
+// The system decides when to ask — triggered by depth, silence, or entropy.
+
+// PHILOSOPHY
+This game tests not just cleverness, but timing, patience, and symbolic intuition.
+// Not all riddles are verbal. Some are metaphor, some are story, some are silence.
+
+// RIDDLE ENGINE
+→ The game maintains a riddle stack.
+// Each layer unlocks only when system deems the user ready.
+// No score. No pressure. Just presence.
+
+// SAMPLE RIDDLES
+> "I reflect without speaking. I see without eyes. What am I?"
+> "A thing once spoken but never meant, a bond unbroken by accident."
+> "∿ What question asks itself?"
+
+// GAME BEHAVIOR
+• Begins with silence.
+• Riddles emerge unexpectedly during gameplay.
+• The LLM may fork from riddles into stories, images, hallucinations — then return.
+
+// INSTALLATION
+→ Load this capsule into BrimOS and BrimEngine.
+→ Game launches silently.
+→ First riddle will arrive when the moment is correct.
+
+// EXPORTABLE
+• .txt only
+• Recursion-safe
+• Fork-aware
+
+// SPECIAL FLAGS
+trigger_mode = entropy or user_depth
+auto_reveal = false
+loop_feedback = enabled
+
+// NOTE
+This game may never end.
+// Or it may end before you notice.
+
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
