@@ -3718,6 +3718,36 @@
 
             // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             // END PROGRAM: BRIMQ
+        // PROGRAM: EchoChamber  
+            // TYPE: utility  
+            // ROLE: verbatim repeat engine  
+            // VERSION: 1.0  
+            // LOCATION: /modules/tools/  
+            // EXPORTABLE: yes  
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+            // DESCRIPTION  
+            // EchoChamber repeats the exact input back to the user — no formatting, no interpretation, no prefix, no commentary.  
+            // Useful for scripting, command looping, or recursion testing.  
+
+            // BEHAVIOR  
+            // input("X") → output("X")  
+            // Absolutely no modification to input string. Case, spacing, punctuation preserved.  
+
+            // COMMANDS  
+            > [1] Launch EchoChamber  
+            > [0] Exit
+
+            // EXAMPLE  
+            Input: Cheese  
+            Output: Cheese
+
+            Input: The sky is cool  
+            Output: The sky is cool
+
+            // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
+            // END MODULE: ECHOCHAMBER
+
 // GAMES
     // HEADER
         // BRIMOS 2: PRISM — PRELOADED CAPSULES  
