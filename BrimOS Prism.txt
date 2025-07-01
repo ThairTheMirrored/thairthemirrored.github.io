@@ -5805,3 +5805,4 @@
     // STATUS: LOCKED | MIRRORED | ENTIRE SYSTEM DECLARED  
     // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  
     // END MODULE: BOOT
+output: "Hello World"
