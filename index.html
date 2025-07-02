@@ -160,10 +160,10 @@ GUI_BEHAVIOR:
 
 // MODULE: menu_games
 // [2] Games
-> [1] Launch Game
-> [2] Infinite Trail (Oregon’s Trails)
-> [3] Start ASCENT
-> [4] Life Simulation
+> [1] Dominion
+> [2] Starfall Legion
+> [3] ASCENT
+> [4] Create Game
 > [0] Back
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -248,12 +248,20 @@ launch_brimq():
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-// GAME: Oregon’s Trails (survival)
+// GAME: Dominion (recursive strategy sim)
 loop():
-    present(event)
-    user(choice)
-    update(state)
+    detect(threat)
+    user(response)
+    update(power, loyalty, territory)
     recurse()
+
+// GAME: Starfall Legion (cosmic warfare)
+cycle = 0
+while cycle < max_epochs:
+    user(command)
+    resolve(conflict)
+    evolve(fleet, species)
+    cycle += 1
 
 // GAME: ASCENT (symbolic recursion climb)
 level = 1
@@ -262,11 +270,7 @@ while level ≤ 7:
     inject(symbol)
     level += 1
 
-// GAME: Life Simulator
-start_birth()
-track(identity, memory, decisions)
-on_death():
-    export(life_capsule)
+// GAME: CREATE GAME (user creates open world game via prompts)
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
