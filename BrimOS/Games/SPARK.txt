@@ -1,8 +1,0 @@
-Spark can be a game program that specifically leaves it as open ended as possible. We essentially create a spark, via BrimEngine and BrimOS, which people can mold into whatever they want. It's like a block of clay.
-
-1: Tools
-2: Games
-3: Programs
-4: Modules
-5: Settings
-
